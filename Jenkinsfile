@@ -81,13 +81,11 @@ pipeline {
                 }
             }
         }
-    }
 
         stage('Deploy Docker Container') {
             steps {
                 script {
                     echo "Deploying Docker container..."
-                    // Stop any existing container
                     sh '''
                     if [ "$(docker ps -q -f name=blog-app-container)" ]; then
                         echo "Stopping existing container..."
@@ -101,7 +99,6 @@ pipeline {
                         -p 8080:8080 \
                         vipulwarthe/blog-app-repo:latest
                     '''
-
                     echo "Deployment completed successfully!"
                 }
             }
@@ -115,4 +112,5 @@ pipeline {
         }
     }
 }
+
 
