@@ -35,7 +35,7 @@ pipeline {
                     sh '''
                     $SCANNER_HOME/bin/sonar-scanner \
                         -Dsonar.projectKey=eks-blogging-app \
-                        -Dsonar.projectName='EKS Blogging App' \
+                        -Dsonar.projectName='eks-blogging-app' \
                         -Dsonar.java.binaries=target
                     '''
                 }
